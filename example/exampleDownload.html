@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
+    <title>Download Example</title>
+</head>
+<body>
+<!-- String -->
+<label for="string">Type a string here to save it to file:</label>
+<br><br>
+<input type="text" id="string">
+<br><br>
+<!-- Filename -->
+<label for="filename">File name:</label>
+<br><br>
+<input type="text" id="filename">
+<br><br>
+<!-- Download Buttons -->
+<button id="download">Download</button>
+<div id="notification"></div>
+<py-script>
+from js import document, Blob, window
+from pyodide import create_proxy
+
+notification_area = Element('notification')
+
+# Creates download function, passes
+def _download_contents_of_field(field_name):
+    
+    # JS grabs id string value, stores it
+    text_to_save = document.getElementById("string").value
+
+    # Saves string value to blob variable
+    blob_of_text = Blob.new(([text_to_save]))
+
+    # Stores blob in url to be made as link
+    url = window.URL.createObjectURL(blob_of_text)
+
+    # JS grabs id filename value, stores it
+    file_name = document.getElementById("filename").value
+
+    # Check inputs are not empty
+    if not text_to_save == "" and not blob_of_text == "":
+        # Creates a tag/attribute
+        link = document.createElement("a")
+        link.download = file_name
+        link.href = url
+        link.click()
+        notification_area.write('')
+    else:
+        notification_area.write('Inputs Empty')
+
+# Download variable stores proxied download function
+download_contents_of_field = create_proxy(_download_contents_of_field)
+
+# Gets id download button, waits for click and passes download variable
+document.getElementById("download").addEventListener("click", download_contents_of_field)
+    </py-script>
+</body>
+</html>

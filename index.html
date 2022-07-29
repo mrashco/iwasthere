@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: hsl(0, 0%, 14%);">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <!-- PyScript -->
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <py-env>
+        - fpdf2
+    </py-env>
     <title>PD Generator</title>
 </head>
 <body class="p-5">
-    <py-env>
-        - fpdf2
-        - requests
-    </py-env>
-    <section class="container">
+
+    <section class="container" style="max-width: 1000px;">
         <section class="notification">
             <div class="content">
-                <h1 class="title">PD Generator</h1>
-                <p>Generate Professional Development Certificates</p>
+                <div class="columns">
+                    <div class="column is-4">
+                        <h1 class="title"><span class="icon has-text-info"><i class="fa-solid fa-graduation-cap"></i></span> PD Generator</h1>
+                        <p>Generate Professional Development Certificates</p>
+                    </div>
+                    <div class="column">
+                        <p>This project is still in development and may not work as intended</p>
+                    </div>
+                </div>
             </div>
-            <label for="name">Name</label><input id="name" type="text" class="textarea" rows="">
-            <label for="email">Email</label><input id="email" type="text" class="textarea" rows="">
-            <button id="generate" pys-onClick="generate" class="button">Generate</button>
+            <div class="field-body">
+                <div class="field">
+                    <label>First Name</label>
+                    <div class="control">
+                        <input id="fname" type="text" class="input"  value="James">
+                    </div>
+                </div>
+                <div class="field"><label for="lname">Last Name</label><input id="lname" class="input"  value="Stone"></div>
+            </div>
+            <div class="field pt-2"><label for="email">Email</label><input id="email" type="email" class="input" value="jamestone@gmail.com"></div>
+            <div class="field-body">
+                <div class="field"><label for="date">Date</label><input id="date" type="date" class="input" style="resize:none;"></div>
+                <div class="field"><label for="event">Event</label><input id="event" class="input"  value="Modern Classroom"></div>
+            </div>
+            <div class="field pt-5"><button id="generate" pys-onClick="generate" class="button is-info">Generate</button></div>
         </section>
         <section class="notification">
             <h1 class="title">Output</h1>
+            <div id="output"></div>
         </section>
     </section>
 </body>
