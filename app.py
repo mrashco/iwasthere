@@ -8,24 +8,31 @@ def generate(*args, **kwargs):
     fname = document.getElementById('fname').value
     lname = document.getElementById('lname').value
     date = document.getElementById('date').value
-    email = document.getElementById('email').value
+    time = document.getElementById('time').value
     event = document.getElementById('event').value
 
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font('helvetica', size=12)
-    pdf.cell(txt=f'{fname}, {lname}, {date}, {email}, {event}')
+    # if str(time).isalpha():
+    #     notification = document.getElementById('notification')
+    #     notification.setAttribute('text', 'Time contains non numeric value.')
 
-    my_stream = io.BytesIO()
+    if not fname == '' and not lname == '' and not time == '' and not event == '':
+        pdf = FPDF(orientation='landscape')
+        pdf.add_page()
+        pdf.set_font('helvetica', size=12)
+        pdf.cell(txt=f'This certificate is for {fname} {lname}.')
+        pdf.cell(txt=f'For attending {event} on {date}.')
+        pdf.cell(txt=f'{time} hours')
 
-    pdf.output(my_stream)
+        my_stream = io.BytesIO()
 
-    pdf_file = File.new([Uint8Array.new(my_stream.getvalue())], 'hello_world.pdf', {'type': 'application/pdf'})
+        pdf.output(my_stream)
 
-    url = window.URL.createObjectURL(pdf_file)
+        pdf_file = File.new([Uint8Array.new(my_stream.getvalue())], 'hello_world.pdf', {'type': 'application/pdf'})
 
-    link = document.createElement('a')
-    link.download = 'certificate.pdf'
-    link.href = url
-    link.text = 'Download PDF'
-    _ = document.body.appendChild(link)
+        url = window.URL.createObjectURL(pdf_file)
+
+        link = document.getElementById('download_button')
+        link.setAttribute('download', 'certificate.pdf')
+        link.setAttribute('href', url)
+        link.setAttribute('text', 'Download')
+        link.setAttribute('class', 'button is-success')

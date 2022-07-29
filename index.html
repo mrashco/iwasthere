@@ -32,24 +32,30 @@
             </div>
             <div class="field-body">
                 <div class="field">
-                    <label>First Name</label>
+                    <label>First Name*</label>
                     <div class="control">
-                        <input id="fname" type="text" class="input"  value="James">
+                        <input id="fname" type="text" class="input"  placeholder="James">
                     </div>
                 </div>
-                <div class="field"><label for="lname">Last Name</label><input id="lname" class="input"  value="Stone"></div>
+                <div class="field"><label for="lname">Last Name*</label><input id="lname" class="input"  placeholder="Stone"></div>
             </div>
-            <div class="field pt-2"><label for="email">Email</label><input id="email" type="email" class="input" value="jamestone@gmail.com"></div>
-            <div class="field-body">
-                <div class="field"><label for="date">Date</label><input id="date" type="date" class="input" style="resize:none;"></div>
-                <div class="field"><label for="event">Event</label><input id="event" class="input"  value="Modern Classroom"></div>
+            <div class="field-body mt-2">
+                <div class="field"><label for="date">Date*</label><input id="date" type="date" class="input" style="resize:none;"></div>
+                <div class="field"><label for="time">Hours*</label><input id="time" type="number" class="input" placeholder="9"></div>
+                <div class="field"><label for="event">Event*</label><input id="event" class="input"  placeholder="Modern Classroom"></div>
             </div>
-            <div class="field pt-5"><button id="generate" pys-onClick="generate" class="button is-info">Generate</button></div>
+            <div class="buttons pt-5">
+                <button id="generate" pys-onClick="generate" class="button is-info"><span
+                    class="icon is-small"><i class="fa-solid fa-arrow-rotate-right"></i></span><span>Generate</span></button>
+                <a id="download_button" class="button"><span class="icon is-small"><i
+                    class="fa-solid fa-download"></i></span><span>Download</span></a>
+                <div id="notification" class=""></div>
+            </div>
         </section>
-        <section class="notification">
+        <!-- <section class="notification">
             <h1 class="title">Output</h1>
             <div id="output"></div>
-        </section>
+        </section> -->
     </section>
 </body>
 <py-script src="app.py"></py-script>
