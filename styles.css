@@ -1,3 +1,9 @@
+/* BULMA OVER-RIDE */
+.notification {
+    background-color: #EFF6FB !important;
+}
+
+/* PREVIEW SECTION */
 .preview-container {
     position: relative;
 }
