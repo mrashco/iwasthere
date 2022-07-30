@@ -8,20 +8,16 @@ def generate(*args, **kwargs):
     fname = document.getElementById('fname').value
     lname = document.getElementById('lname').value
     date = document.getElementById('date').value
-    time = document.getElementById('time').value
+    hours = document.getElementById('hours').value
     event = document.getElementById('event').value
 
-    # if str(time).isalpha():
-    #     notification = document.getElementById('notification')
-    #     notification.setAttribute('text', 'Time contains non numeric value.')
-
-    if not fname == '' and not lname == '' and not time == '' and not event == '':
+    if not fname == '' and not lname == '' and not hours == '' and not event == '':
         pdf = FPDF(orientation='landscape')
         pdf.add_page()
         pdf.set_font('helvetica', size=12)
         pdf.cell(txt=f'This certificate is for {fname} {lname}.')
         pdf.cell(txt=f'For attending {event} on {date}.')
-        pdf.cell(txt=f'{time} hours')
+        pdf.cell(txt=f'{hours} hours')
 
         my_stream = io.BytesIO()
 
@@ -31,8 +27,17 @@ def generate(*args, **kwargs):
 
         url = window.URL.createObjectURL(pdf_file)
 
-        link = document.getElementById('download_button')
+        link = document.getElementById('generate')
         link.setAttribute('download', 'certificate.pdf')
         link.setAttribute('href', url)
         link.setAttribute('text', 'Download')
-        link.setAttribute('class', 'button is-success')
+        # link.setAttribute('class', 'button is-success')
+
+def previewFunc(*args, **kwargs):
+    # object.addEventListener("fname", myScript)
+    x = document.getElementById("fname")
+    x.value = str(x.value).upper()
+    x.addEventListener("keyup", previewFunc)
+
+    # x = document.getElementById("fname")
+    # x.value = x.value.toUpperCase()

@@ -1,0 +1,17 @@
+.preview-container {
+    position: relative;
+}
+.preview-text {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    padding-right: 10%;
+    overflow: none;
+
+    font-size: x-large;
+}
+.preview-text td {
+    width: 35%;
+    /* background-color: red; */
+    padding: 2.5%;
+}

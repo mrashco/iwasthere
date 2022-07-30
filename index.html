@@ -7,13 +7,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+
+    <script defer src="app.js"></script>
     <!-- PyScript -->
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <py-env>
         - fpdf2
     </py-env>
-    <title>PD Generator</title>
+    <title>I Was There</title>
 </head>
 <body class="p-5">
 
@@ -22,8 +25,8 @@
             <div class="content">
                 <div class="columns">
                     <div class="column">
-                        <h1 class="title"><!--<span class="icon has-text-info"><i class="fa-solid fa-graduation-cap"></i></span>--> Generate Professional Development Certificates</h1>
-                        <p>All details must be entered. <span class="tag is-warning">Disclaimer</span> honesty-based policy in place.</p>
+                        <h1 class="title"><!--<span class="icon has-text-info"><i class="fa-solid fa-graduation-cap"></i></span>--> "I Was There" Certificate Generator</h1>
+                        <p>Generate Professional Development Certificates. All details must be entered. <span class="tag is-warning">Disclaimer</span> honesty-based policy in place.</p>
                     </div>
                     <!-- <div class="column">
                         <p></p>
@@ -34,28 +37,52 @@
                 <div class="field">
                     <label>First Name*</label>
                     <div class="control">
-                        <input id="fname" type="text" class="input"  placeholder="James">
+                        <input id="fname" type="text" class="input"  placeholder="James" onkeyup="previewUpdates()">
                     </div>
                 </div>
-                <div class="field"><label for="lname">Last Name*</label><input id="lname" class="input"  placeholder="Stone"></div>
+                <div class="field"><label for="lname">Last Name*</label><input id="lname" class="input"  placeholder="Stone" onkeyup="previewUpdates()"></div>
             </div>
             <div class="field-body mt-2">
-                <div class="field"><label for="date">Date*</label><input id="date" type="date" class="input" style="resize:none;"></div>
-                <div class="field"><label for="time">Hours*</label><input id="time" type="number" class="input" placeholder="9"></div>
-                <div class="field"><label for="event">Event*</label><input id="event" class="input"  placeholder="Modern Classroom"></div>
+                <div class="field"><label for="event">Event*</label><input id="event" class="input"  placeholder="Modern Classroom" onkeyup="previewUpdates()"></div>
+                <div class="field"><label for="date">Date*</label><input id="date" type="date" class="input" style="resize:none;" onkeyup="previewUpdates()"></div>
+                <div class="field"><label for="hours">Hours*</label><input id="hours" type="number" class="input" placeholder="9" onkeyup="previewUpdates()"></div>
             </div>
             <div class="buttons pt-5">
-                <button id="generate" pys-onClick="generate" class="button is-info"><span
-                    class="icon is-small"><i class="fa-solid fa-arrow-rotate-right"></i></span><span>Generate</span></button>
-                <a id="download_button" class="button"><span class="icon is-small"><i
+                <a id="generate" pys-onClick="generate" class="button is-info"><span
+                    class="icon is-small"><i class="fa-solid fa-download"></i></span><span>Generate</span></a>
+                <!-- <a id="download_button" class="button"><span class="icon is-small"><i
                     class="fa-solid fa-download"></i></span><span>Download</span></a>
-                <div id="notification" class=""></div>
+                <div id="notification" class=""></div> -->
+            </div>
+        </section>
+        <section class="notification">
+            <h1 class="subtitle">Preview</h1>
+            <div class="preview-container rounded border"> <!--style="background-image: url('cert.png'); height: 650px; background-position: center; background-size: cover;"-->
+                <img class="image" src="cert.png">
+                <table class="preview-text">
+                    <tr>
+                        <td>Awarded to:</td>
+                        <td><span id="pre_fname"></span> <span id="pre_lname"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Attendance of:</td>
+                        <td><span id="pre_event"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Event date:</td>
+                        <td><span id="pre_date"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Amount of hours:</td>
+                        <td><span id="pre_hours"></span></td>
+                    </tr>
+                </table>
             </div>
         </section>
         <section class="notification p-5">
             <h1 class="subtitle">About</h1>
             <div class="content">
-                <p><b>Story:</b> Teachers do a lot of Professional Development (PD) and sometimes you might get a certificate as evidence, most of the time not so much.
+                <p><b>Story:</b> Teachers do a lot of Professional Development (PD) and somehourss you might get a certificate as evidence, most of the hours not so much.
                 This is what I've looked for, a quick and easy certificate generator to use as evidence. No more screenshots of emails!</p>
                 <p><b>Project:</b> Built with HTML, Python & PyScript, hosted on <a href="https://github.com/mrashleyball/iwasthere" target="_blank">GitHub</a>.</p>
                 <p><b>Author:</b> Hi, I'm Ash an IT teacher, former web designer and I'm currently learning Cyber Security and Python
