@@ -16,6 +16,10 @@ async def generate(*args, **kwargs):
         pdf = FPDF(orientation='landscape')
         pdf.add_page()
         
+        # global image_io
+        # image_io = getImage()
+        # pdf.image(image_io, 0, 0, 297, 210)
+
         image_url = 'cert.png'
         response = await pyfetch(url=image_url, method='GET')
         image_io = io.BytesIO(await response.bytes())
@@ -55,3 +59,9 @@ def rmvSpaces(name):
             char = '-'
         new_name += char
     return new_name
+
+# async def getImage():
+#         image_url = 'cert.png'
+#         response = await pyfetch(url=image_url, method='GET')
+#         # global image_io
+#         return io.BytesIO(await response.bytes())
