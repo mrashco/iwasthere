@@ -1,13 +1,9 @@
-# I Was There [🔗](https://iwasthere.mrash.co/)
+# I Was There
 ## Generate Professional Development Certificates
 ### [iwasthere.mrash.co](https://iwasthere.mrash.co/)
 
-# About
-## Story
-Teachers do a lot of Professional Development (PD) and sometimes you might get a certificate as evidence, most of the time not so much. This is what I've looked for, a quick and easy certificate generator to use as evidence. No more screenshots of emails!
+**Story:** Most teachers do a lot of Professional Development (PD) like webinars, self-paced courses and more. Getting evidence is often required for record keeping. Depedning on the event a certificate of attendance might be provided, often it's not. Which leads to I Was There, a quick and easy attendance certificate generator. No more screenshots of emails or making your own in word.
 
-## Project
-Built with HTML, Python & PyScript, hosted on GitHub. See [Colour Palette](https://coolors.co/081621-3e8ed0-eff6fb).
+**Project:** Built with HTML, Python & PyScript, open-source on [GitHub](https://github.com/mrashleyball/iwasthere).
 
-## Author
-Hi, I'm Ash an IT teacher, former web designer and I'm currently learning Cyber Security and Python Programming. Follow me @mrashleyball and visist the blog at mrash.co for regular articles and the monthly newsletter.
+**Author:** Hi, I'm Ash an IT teacher, former web designer and I'm currently learning Cyber Security and Python Programming. Follow me [@mrashleyball](https://twitter.com/mrashleyball) and visist the blog at [mrash.co](https://mrash.co/) for regular articles and the [monthly newsletter](https://mrash.co/newsletters).
