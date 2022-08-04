@@ -6,4 +6,4 @@
 
 **Project:** Built with HTML, Python & PyScript, open-source on [GitHub](https://github.com/mrashleyball/iwasthere).
 
-**Author:** Hi, I'm Ash an IT teacher, former web designer and I'm currently learning Cyber Security and Python Programming. Follow me [@mrashleyball](https://twitter.com/mrashleyball) and visist the blog at [mrash.co](https://mrash.co/) for regular articles and the [monthly newsletter](https://mrash.co/newsletters).
+**Author:** Hi, I'm Ash an IT teacher, former web designer and I'm currently learning Cyber Security and Python Programming. Follow me [@mrashleyball](https://twitter.com/mrashleyball) and visit the blog at [mrash.co](https://mrash.co/) for regular articles and the [monthly newsletter](https://mrash.co/newsletters).
