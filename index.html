@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <py-env>
         - fpdf2
+        - paths:
+            - iwasthere.jpg
     </py-env>
     <title>I Was There: Certificate Generator</title>
 </head>
@@ -37,15 +39,15 @@
                 <div class="field">
                     <label>First Name*</label>
                     <div class="control">
-                        <input id="fname" type="text" class="input"  value="James" onkeyup="previewUpdates()">
+                        <input id="fname" type="text" class="input"  placeholder="James" onkeyup="previewUpdates()">
                     </div>
                 </div>
-                <div class="field"><label for="lname">Last Name*</label><input id="lname" class="input"  value="Stone" onkeyup="previewUpdates()"></div>
+                <div class="field"><label for="lname">Last Name*</label><input id="lname" class="input"  placeholder="Stone" onkeyup="previewUpdates()"></div>
             </div>
             <div class="field-body mt-2">
-                <div class="field"><label for="event">Event*</label><input id="event" class="input"  value="Modern Classroom" onkeyup="previewUpdates()"></div>
-                <div class="field"><label for="date">Date*</label><input id="date" type="date" class="input" style="resize:none;" value="01/01/01" onkeyup="previewUpdates()"></div>
-                <div class="field"><label for="hours">Hours*</label><input id="hours" type="number" class="input" value="9" onkeyup="previewUpdates()"></div>
+                <div class="field"><label for="event">Event*</label><input id="event" class="input"  placeholder="Modern Classroom" onkeyup="previewUpdates()"></div>
+                <div class="field"><label for="date">Date*</label><input id="date" type="date" class="input" style="resize:none;" onkeyup="previewUpdates()"></div>
+                <div class="field"><label for="hours">Hours*</label><input id="hours" type="number" class="input" placeholder="9" onkeyup="previewUpdates()"></div>
             </div>
             <div class="columns content pt-5">
                 <div class="column is-2">
@@ -60,7 +62,7 @@
         </section>
         <section class="notification p-5">
             <div class="preview-container rounded border is-fullwidth is-size-7 is-size-4-tablet is-size-3-desktop"> <!--style="background-image: url('cert.png'); height: 650px; background-position: center; background-size: cover;"-->
-                <img class="image" src="cert.png">
+                <img class="image" src="iwasthere.jpg">
                 <table class="preview-text table is-narrow">
                     <tr class="tr">
                         <td class="td">Awarded to:</td>

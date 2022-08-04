@@ -1,6 +1,6 @@
 from fpdf import FPDF
 import io
-from pyodide.http import pyfetch
+# from pyodide.http import pyfetch
 from js import document, window, Uint8Array, File
 from datetime import datetime
 
@@ -20,9 +20,14 @@ async def generate(*args, **kwargs):
         # image_io = getImage()
         # pdf.image(image_io, 0, 0, 297, 210)
 
-        image_url = 'cert.png'
-        response = await pyfetch(url=image_url, method='GET')
-        image_io = io.BytesIO(await response.bytes())
+        # image_url = 'cert.png'
+        # response = await pyfetch(url=image_url, method='GET')
+        # image_io = io.BytesIO(await response.bytes())
+        # pdf.image(image_io, 0, 0, 297, 210)
+
+        image_url = 'iwasthere.jpg'
+        with open(image_url, 'rb') as fp:
+            image_io = io.BytesIO(fp.read())
         pdf.image(image_io, 0, 0, 297, 210)
         
         pdf.set_font('helvetica', size=24)
@@ -42,11 +47,16 @@ async def generate(*args, **kwargs):
         
         # Remove spaces and return with dashes for filename
         fname, lname, event = rmvSpaces(fname), rmvSpaces(lname), rmvSpaces(event)
-        link = document.getElementById('generate')
+        # link = document.getElementById('generate')
+        link = document.createElement("a")
         link.setAttribute('download', f'iwasthere-{fname}-{lname}-{event}-{time_now}.pdf'.lower())
         link.setAttribute('href', url)
-        link.setAttribute('text', 'Download')
+        # link.setAttribute('text', 'Download')
+        link.click()
         # link.setAttribute('class', 'button is-success')
+
+        # onscreen_link = document.getElementById('generate')
+        # onscreen_link.setAttribute('class', 'button is-success')
 
 def getTimeNow():
     now = datetime.now()
